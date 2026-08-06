@@ -66,10 +66,43 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+
+  const data = {
+    name: (form.elements.namedItem("name") as HTMLInputElement).value,
+    phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+    email: (form.elements.namedItem("email") as HTMLInputElement).value,
+    teamSize: (form.elements.namedItem("teamSize") as HTMLSelectElement).value,
+    lookingFor: (form.elements.namedItem("workspace") as HTMLSelectElement).value,
+    comments: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+  };
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbyinrnWnJ2OKvSpZAmnkUi0ttTuovf-FIS0BsEMWqI9a4c7Yb3hABZEMzU9dmN20Do5/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    if (response.ok) {
+      setSubmitted(true);
+      form.reset();
+    } else {
+      alert("Something went wrong.");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Unable to submit.");
   }
+}
 
   return (
     <main id="top">
