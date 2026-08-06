@@ -120,7 +120,7 @@ export default function Home() {
       <section className="trust-strip" aria-label="Workspace benefits">
         <p>Everything your business needs, under one roof.</p>
         <div><span>01</span><strong>Move-in ready</strong></div>
-        <div><span>02</span><strong>Flexible terms</strong></div>
+        <div><span>02</span><strong>Flexible payments</strong></div>
         <div><span>03</span><strong>Professional support</strong></div>
       </section>
 
