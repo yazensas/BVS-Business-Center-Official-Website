@@ -88,6 +88,10 @@ export default function Home() {
     body: JSON.stringify(data),
   }
 );
+    await fetch("/api/send-email", {
+  method: "POST",
+  body: JSON.stringify(data),
+});
 
     if (response.ok) {
       setSubmitted(true);
