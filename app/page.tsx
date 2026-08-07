@@ -279,7 +279,9 @@ export default function Home() {
         </div>
         <form className="enquiry-form" onSubmit={handleSubmit}>
           {submitted ? (
-            <div className="form-success" role="status"><span>Design preview</span><h3>The enquiry layout is ready.</h3><p>This form is not connected yet, so no information was sent. It can be wired to your preferred email or CRM later.</p><button type="button" onClick={() => setSubmitted(false)}>Return to form</button></div>
+            <div className="form-success" role="status"><span>Thank you</span>
+        <h3>Your enquiry has been received.</h3>
+        <p>Thank you for contacting BVS Business Center. Our team will get back to you shortly.</p><button type="button" onClick={() => setSubmitted(false)}>Return to form</button></div>
           ) : (
             <>
               <div className="form-row"><label>Full name<input name="name" type="text" placeholder="Your name" required /></label><label>Phone number<input name="phone" type="tel" placeholder="+971" required /></label></div>
