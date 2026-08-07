@@ -234,7 +234,13 @@ export default function Home() {
           <h2>Business,<br />well positioned.</h2>
           <p>Meet clients and work from a central Al Barsha address with easy access to Dubai’s major commercial districts.</p>
           <address>Offices 203–208, 2nd Floor<br />Barsha Valley Building<br />Al Barsha 1, Dubai, UAE</address>
-          <a href="https://maps.google.com/?q=Barsha+Valley+Building+Al+Barsha+1+Dubai" target="_blank" rel="noreferrer">Open in Google Maps <span>↗</span></a>
+          <a 
+          href="https://maps.app.goo.gl/WbjsEvxunLHeqoZi6?g_st=ac" 
+          target="_blank" 
+          rel="noreferrer"
+          >
+          Open in Google Maps <span>↗</span>
+          </a>
         </div>
       </section>
 
