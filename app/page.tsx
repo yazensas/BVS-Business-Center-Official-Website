@@ -82,15 +82,12 @@ export default function Home() {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbyinrnWnJ2OKvSpZAmnkUi0ttTuovf-FIS0BsEMWqI9a4c7Yb3hABZEMzU9dmN20Do5/exec",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
+  "https://script.google.com/macros/s/AKfycbyinrnWnJ2OKvSpZAmnkUi0ttTuovf-FIS0BsEMWqI9a4c7Yb3hABZEMzU9dmN20Do5/exec",
+  {
+    method: "POST",
+    body: JSON.stringify(data),
+  }
+);
 
     if (response.ok) {
       setSubmitted(true);
