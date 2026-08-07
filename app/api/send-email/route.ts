@@ -29,6 +29,27 @@ export async function POST(request: Request) {
       );
     }
 
+    await resend.emails.send({
+  from: "BVS Business Center <noreply@bvsbusinesscenter.com>",
+  to: data.email,
+  subject: "Thank you for contacting BVS Business Center",
+  html: `
+    <h2>Thank you for your enquiry</h2>
+
+    <p>Dear ${data.name},</p>
+
+    <p>
+      Thank you for contacting BVS Business Center.
+      We have received your enquiry and our team will get back to you shortly.
+    </p>
+
+    <p>
+      Regards,<br />
+      BVS Business Center
+    </p>
+  `,
+});
+
     return Response.json({
       success: true,
     });
