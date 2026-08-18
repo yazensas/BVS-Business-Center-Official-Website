@@ -170,7 +170,7 @@ export default function AvailableUnits() {
                   onClick={() => openUnit(unit)}
                   className="mt-6 w-full rounded-xl bg-gray-900 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
-                  View Unit Details
+                  View Unit Details TEST
                   </button>
 
                 </div>
