@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import AvailableUnits from "./components/AvailableUnits";
 
 const workspaces = [
   {
@@ -176,6 +177,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <AvailableUnits />
 
       <section className="experience" id="experience">
         <div className="experience-visual">
