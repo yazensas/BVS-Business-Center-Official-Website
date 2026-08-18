@@ -9,11 +9,12 @@ export default function AvailableUnits() {
   const [selectedUnit, setSelectedUnit] = useState<Unit | null>(null);
   const [selectedPhoto, setSelectedPhoto] = useState(0);
 
-  function openUnit(unit: Unit) {
-    setSelectedUnit(unit);
-    setSelectedPhoto(0);
-    document.body.style.overflow = "hidden";
-  }
+ function openUnit(unit: Unit) {
+  console.log("UNIT BUTTON CLICKED:", unit.id);
+  setSelectedUnit(unit);
+  setSelectedPhoto(0);
+  document.body.style.overflow = "hidden";
+}
 
   function closeUnit() {
     setSelectedUnit(null);
