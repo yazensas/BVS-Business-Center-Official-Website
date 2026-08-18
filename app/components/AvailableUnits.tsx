@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { units, type Unit } from "../data/units";
 
 const WHATSAPP_NUMBER = "971525189306";
@@ -10,13 +10,14 @@ export default function AvailableUnits() {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
 
   function openUnit(unit: Unit) {
-  setSelectedUnit(unit);
-  setSelectedPhoto(0);
-
+    setSelectedUnit(unit);
+    setSelectedPhoto(0);
+    document.body.style.overflow = "hidden";
   }
 
   function closeUnit() {
     setSelectedUnit(null);
+    setSelectedPhoto(0);
     document.body.style.overflow = "";
   }
 
@@ -24,7 +25,7 @@ export default function AvailableUnits() {
     if (!selectedUnit) return;
 
     setSelectedPhoto(
-      (selectedPhoto + 1) % selectedUnit.photos.length
+      (current) => (current + 1) % selectedUnit.photos.length
     );
   }
 
@@ -32,10 +33,17 @@ export default function AvailableUnits() {
     if (!selectedUnit) return;
 
     setSelectedPhoto(
-      (selectedPhoto - 1 + selectedUnit.photos.length) %
+      (current) =>
+        (current - 1 + selectedUnit.photos.length) %
         selectedUnit.photos.length
     );
   }
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   const whatsappMessage = selectedUnit
     ? encodeURIComponent(
@@ -46,7 +54,7 @@ export default function AvailableUnits() {
   return (
     <>
       {/* =====================================================
-          AVAILABLE UNITS SECTION
+          AVAILABLE UNITS
           ===================================================== */}
 
       <section
@@ -55,9 +63,10 @@ export default function AvailableUnits() {
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-          {/* Section Heading */}
+          {/* SECTION HEADER */}
 
           <div className="mx-auto max-w-3xl text-center">
+
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
               Available at BVS
             </p>
@@ -71,63 +80,92 @@ export default function AvailableUnits() {
               View photos, facilities, pricing and availability for
               each unit.
             </p>
+
           </div>
+
 
           {/* =================================================
               UNIT CARDS
               ================================================= */}
 
-          <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
             {units.map((unit) => (
+
               <article
                 key={unit.id}
-                className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
 
-                {/* Card Photo */}
+                {/* PHOTO */}
 
-                <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
+                <button
+                  type="button"
+                  onClick={() => openUnit(unit)}
+                  className="relative block w-full overflow-hidden bg-gray-100 text-left"
+                  aria-label={`View ${unit.name} photos`}
+                >
 
-                  <img
-                    src={unit.photos[0]}
-                    alt={`${unit.name} at BVS Business Center`}
-                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                  />
+                  <div className="aspect-[4/3]">
 
-                  {/* Status */}
+                    <img
+                      src={unit.photos[0]}
+                      alt={`${unit.name} at BVS Business Center`}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
 
-                  <span className="absolute left-4 top-4 rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white shadow">
+                  </div>
+
+
+                  {/* AVAILABLE */}
+
+                  <span className="absolute left-4 top-4 rounded-full bg-green-600 px-3 py-1.5 text-xs font-semibold text-white shadow-md">
                     {unit.status}
                   </span>
 
-                  {/* Video Badge */}
+
+                  {/* PHOTO COUNT */}
+
+                  <span className="absolute bottom-4 left-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
+                    📷 {unit.photos.length} Photos
+                  </span>
+
+
+                  {/* VIDEO */}
 
                   {unit.video && (
-                    <span className="absolute bottom-4 right-4 rounded-full bg-black/75 px-3 py-1.5 text-xs font-medium text-white">
+                    <span className="absolute bottom-4 right-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
                       ▶ Video
                     </span>
                   )}
 
-                </div>
+                </button>
 
-                {/* Card Information */}
+
+                {/* CARD INFORMATION */}
 
                 <div className="p-5">
+
+                  {/* FLOOR */}
 
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">
                     {unit.location}
                   </p>
 
+
+                  {/* UNIT NAME */}
+
                   <h3 className="mt-2 text-xl font-semibold text-gray-900">
                     {unit.name}
                   </h3>
 
-                  {/* Size + Capacity */}
+
+                  {/* SIZE / CAPACITY */}
 
                   <div className="mt-4 grid grid-cols-2 gap-3 border-y border-gray-100 py-4">
 
                     <div>
+
                       <p className="text-xs text-gray-500">
                         Office size
                       </p>
@@ -135,9 +173,12 @@ export default function AvailableUnits() {
                       <p className="mt-1 text-sm font-semibold text-gray-900">
                         {unit.size} sq ft
                       </p>
+
                     </div>
 
+
                     <div>
+
                       <p className="text-xs text-gray-500">
                         Capacity
                       </p>
@@ -145,11 +186,13 @@ export default function AvailableUnits() {
                       <p className="mt-1 text-sm font-semibold text-gray-900">
                         {unit.suggestedCapacity}
                       </p>
+
                     </div>
 
                   </div>
 
-                  {/* Price */}
+
+                  {/* PRICE */}
 
                   <div className="mt-4">
 
@@ -163,32 +206,37 @@ export default function AvailableUnits() {
 
                   </div>
 
-                  {/* Button */}
+
+                  {/* VIEW BUTTON */}
 
                   <button
-                  type="button"
-                  onClick={() => openUnit(unit)}
-                  className="mt-6 w-full rounded-xl bg-gray-900 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    type="button"
+                    onClick={() => openUnit(unit)}
+                    className="mt-6 w-full rounded-xl bg-gray-900 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
-                  View Unit Details TEST
+                    View Unit Details
                   </button>
 
                 </div>
 
               </article>
+
             ))}
 
           </div>
+
         </div>
       </section>
+
 
       {/* =====================================================
           UNIT DETAILS MODAL
           ===================================================== */}
 
       {selectedUnit && (
+
         <div
-          className="fixed inset-0 z-[100] overflow-y-auto bg-black/70 px-4 py-6 sm:px-6"
+          className="fixed inset-0 z-[100] overflow-y-auto bg-black/75 px-4 py-6 sm:px-6"
           onClick={closeUnit}
           role="dialog"
           aria-modal="true"
@@ -196,103 +244,110 @@ export default function AvailableUnits() {
         >
 
           <div
-            className="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-white shadow-2xl"
+            className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-white shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
 
             {/* =================================================
-                PHOTO GALLERY
+                GALLERY
                 ================================================= */}
 
-            <div className="bg-gray-100 p-4 sm:p-6">
+            <div className="bg-[#f5f5f3] p-4 sm:p-6">
 
-              {/* Main Photo */}
+              {/* MAIN PHOTO */}
 
-              <div className="relative mx-auto max-w-3xl overflow-hidden rounded-xl bg-gray-900">
+              <div className="relative mx-auto max-w-4xl overflow-hidden rounded-xl bg-gray-900">
 
                 <img
                   src={selectedUnit.photos[selectedPhoto]}
                   alt={`${selectedUnit.name} photo ${selectedPhoto + 1}`}
-                  className="h-[260px] w-full object-cover sm:h-[380px]"
+                  className="h-[260px] w-full object-cover sm:h-[450px]"
                 />
 
-                {/* Previous Button */}
+
+                {/* PREVIOUS */}
 
                 {selectedUnit.photos.length > 1 && (
+
                   <button
                     type="button"
                     onClick={previousPhoto}
-                    className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-2xl text-white transition hover:bg-black/80"
+                    className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-2xl text-white shadow-lg transition hover:bg-black/80"
                     aria-label="Previous photo"
                   >
                     ‹
                   </button>
+
                 )}
 
-                {/* Next Button */}
+
+                {/* NEXT */}
 
                 {selectedUnit.photos.length > 1 && (
+
                   <button
                     type="button"
                     onClick={nextPhoto}
-                    className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-2xl text-white transition hover:bg-black/80"
+                    className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-2xl text-white shadow-lg transition hover:bg-black/80"
                     aria-label="Next photo"
                   >
                     ›
                   </button>
+
                 )}
 
-                {/* Photo Counter */}
 
-                <div className="absolute bottom-3 right-3 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white">
+                {/* PHOTO NUMBER */}
+
+                <div className="absolute bottom-4 right-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
                   {selectedPhoto + 1} / {selectedUnit.photos.length}
                 </div>
 
               </div>
 
-              {/* =================================================
-                  PHOTO THUMBNAILS
-                  ================================================= */}
 
-              {selectedUnit.photos.length > 1 && (
-                <div className="mx-auto mt-3 grid max-w-3xl grid-cols-4 gap-2 sm:gap-3">
+              {/* THUMBNAILS */}
 
-                  {selectedUnit.photos.map((photo, index) => (
-                    <button
-                      key={photo}
-                      type="button"
-                      onClick={() => setSelectedPhoto(index)}
-                      className={`relative overflow-hidden rounded-lg border-2 transition ${
-                        selectedPhoto === index
-                          ? "border-blue-600 ring-2 ring-blue-100"
-                          : "border-transparent hover:border-gray-300"
-                      }`}
-                      aria-label={`View photo ${index + 1}`}
-                    >
+              <div className="mx-auto mt-4 grid max-w-4xl grid-cols-4 gap-2 sm:gap-3">
 
-                      <img
-                        src={photo}
-                        alt={`${selectedUnit.name} thumbnail ${index + 1}`}
-                        className="h-14 w-full object-cover sm:h-20"
-                      />
+                {selectedUnit.photos.map((photo, index) => (
 
-                    </button>
-                  ))}
+                  <button
+                    key={photo}
+                    type="button"
+                    onClick={() => setSelectedPhoto(index)}
+                    className={`relative overflow-hidden rounded-lg border-2 transition ${
+                      selectedPhoto === index
+                        ? "border-blue-600 ring-2 ring-blue-100"
+                        : "border-transparent hover:border-gray-300"
+                    }`}
+                    aria-label={`View photo ${index + 1}`}
+                  >
 
-                </div>
-              )}
+                    <img
+                      src={photo}
+                      alt={`${selectedUnit.name} thumbnail ${index + 1}`}
+                      className="h-16 w-full object-cover sm:h-24"
+                    />
+
+                  </button>
+
+                ))}
+
+              </div>
 
             </div>
 
+
             {/* =================================================
-                UNIT DETAILS
+                DETAILS
                 ================================================= */}
 
             <div className="p-6 sm:p-8">
 
-              {/* Header */}
+              {/* HEADER */}
 
-              <div className="flex flex-col gap-4 border-b border-gray-200 pb-6 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex flex-col gap-5 border-b border-gray-200 pb-6 sm:flex-row sm:items-start sm:justify-between">
 
                 <div>
 
@@ -300,7 +355,7 @@ export default function AvailableUnits() {
                     {selectedUnit.location}
                   </p>
 
-                  <h3 className="mt-2 text-3xl font-semibold tracking-tight text-gray-900">
+                  <h3 className="mt-2 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
                     {selectedUnit.name}
                   </h3>
 
@@ -309,6 +364,7 @@ export default function AvailableUnits() {
                   </p>
 
                 </div>
+
 
                 <div className="sm:text-right">
 
@@ -324,9 +380,8 @@ export default function AvailableUnits() {
 
               </div>
 
-              {/* =================================================
-                  KEY INFORMATION
-                  ================================================= */}
+
+              {/* KEY INFORMATION */}
 
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
 
@@ -342,6 +397,7 @@ export default function AvailableUnits() {
 
                 </div>
 
+
                 <div className="rounded-xl bg-gray-50 p-4">
 
                   <p className="text-xs uppercase tracking-wider text-gray-500">
@@ -354,10 +410,11 @@ export default function AvailableUnits() {
 
                 </div>
 
+
                 <div className="rounded-xl bg-gray-50 p-4">
 
                   <p className="text-xs uppercase tracking-wider text-gray-500">
-                    Recommended capacity
+                    Capacity
                   </p>
 
                   <p className="mt-1 font-semibold text-gray-900">
@@ -368,11 +425,10 @@ export default function AvailableUnits() {
 
               </div>
 
-              {/* =================================================
-                  DESCRIPTION
-                  ================================================= */}
 
-              <div className="mt-7">
+              {/* DESCRIPTION */}
+
+              <div className="mt-8">
 
                 <h4 className="text-lg font-semibold text-gray-900">
                   About the office
@@ -384,11 +440,10 @@ export default function AvailableUnits() {
 
               </div>
 
-              {/* =================================================
-                  FACILITIES
-                  ================================================= */}
 
-              <div className="mt-7">
+              {/* FACILITIES */}
+
+              <div className="mt-8">
 
                 <h4 className="text-lg font-semibold text-gray-900">
                   Included facilities
@@ -397,6 +452,7 @@ export default function AvailableUnits() {
                 <div className="mt-4 grid gap-2 sm:grid-cols-2">
 
                   {selectedUnit.facilities.map((facility) => (
+
                     <div
                       key={facility}
                       className="flex items-center gap-3 rounded-lg border border-gray-100 bg-gray-50 px-4 py-3"
@@ -411,17 +467,20 @@ export default function AvailableUnits() {
                       </span>
 
                     </div>
+
                   ))}
 
                 </div>
 
               </div>
 
+
               {/* =================================================
                   VIDEO
                   ================================================= */}
 
               {selectedUnit.video && (
+
                 <div className="mt-8">
 
                   <div className="mb-3">
@@ -436,29 +495,34 @@ export default function AvailableUnits() {
 
                   </div>
 
+
                   <div className="overflow-hidden rounded-xl bg-black">
 
                     <video
                       controls
                       playsInline
                       preload="metadata"
-                      className="max-h-[400px] w-full"
+                      className="max-h-[450px] w-full"
                     >
+
                       <source
                         src={selectedUnit.video}
                         type="video/mp4"
                       />
 
                       Your browser does not support video playback.
+
                     </video>
 
                   </div>
 
                 </div>
+
               )}
 
+
               {/* =================================================
-                  CONTACT BUTTONS
+                  CONTACT
                   ================================================= */}
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -472,6 +536,7 @@ export default function AvailableUnits() {
                   WhatsApp About This Office
                 </a>
 
+
                 <a
                   href="tel:+97144478808"
                   className="rounded-xl border border-gray-300 px-6 py-4 text-center text-sm font-semibold text-gray-900 transition hover:bg-gray-50"
@@ -481,7 +546,8 @@ export default function AvailableUnits() {
 
               </div>
 
-              {/* Close */}
+
+              {/* CLOSE */}
 
               <button
                 type="button"
@@ -494,8 +560,11 @@ export default function AvailableUnits() {
             </div>
 
           </div>
+
         </div>
+
       )}
+
     </>
   );
 }
