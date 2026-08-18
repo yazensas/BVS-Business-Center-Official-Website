@@ -167,7 +167,7 @@ export default function AvailableUnits() {
 
                   <button
                   type="button"
-                  onClick={() => openUnit(unit)}
+                  onClick={() => alert("BUTTON IS WORKING")}
                   className="mt-6 w-full rounded-xl bg-gray-900 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                   View Unit Details TEST
