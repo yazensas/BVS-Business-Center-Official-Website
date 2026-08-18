@@ -10,9 +10,9 @@ export default function AvailableUnits() {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
 
   function openUnit(unit: Unit) {
-    setSelectedUnit(unit);
-    setSelectedPhoto(0);
-    document.body.style.overflow = "hidden";
+  setSelectedUnit(unit);
+  setSelectedPhoto(0);
+
   }
 
   function closeUnit() {
@@ -167,7 +167,7 @@ export default function AvailableUnits() {
 
                   <button
                   type="button"
-                  onClick={() => alert("BUTTON IS WORKING")}
+                  onClick={() => openUnit(unit)}
                   className="mt-6 w-full rounded-xl bg-gray-900 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                   View Unit Details TEST
