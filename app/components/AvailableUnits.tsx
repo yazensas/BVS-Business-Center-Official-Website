@@ -165,12 +165,13 @@ export default function AvailableUnits() {
 
                   {/* Button */}
 
-                  <a
-                   href="#enquire"
-                   className="mt-6 block w-full rounded-xl bg-gray-900 px-5 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-blue-700"
+                  <button
+                  type="button"
+                  onClick={() => openUnit(unit)}
+                  className="mt-6 w-full rounded-xl bg-gray-900 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                   View Unit Details
-                  </a>
+                  </button>
 
                 </div>
 
