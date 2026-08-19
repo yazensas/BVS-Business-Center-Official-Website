@@ -1,6 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 import AvailableUnits from "./components/AvailableUnits";
 
 const workspaces = [
@@ -94,9 +100,18 @@ export default function Home() {
   body: JSON.stringify(data),
 });
 
-    if (response.ok) {
-      setSubmitted(true);
-      form.reset();
+ if (response.ok) {
+  setSubmitted(true);
+
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "conversion", {
+      send_to: "AW-18275056710/UaDKCNDGzNkcEMb4nIpE",
+      value: 1.0,
+      currency: "AED",
+    });
+  }
+
+  form.reset();
     } else {
       alert("Something went wrong.");
     }
@@ -302,7 +317,7 @@ export default function Home() {
               <label>What are you looking for?<select name="workspace" defaultValue=""><option value="" disabled>Select a workspace</option><option>Private office</option><option>Meeting room</option><option>Flexible desk</option><option>Virtual office</option><option>Not sure yet</option></select></label>
               <label>Anything else?<textarea name="message" placeholder="Move-in date, preferred setup or questions" rows={4} /></label>
               <button className="submit-button" type="submit">Request a viewing <span>↗</span></button>
-              <small>Design preview only—this form is not connected and will not send your information.</small>
+              <small>Your information is sent securely to the BVS Business Center team.</small>
             </>
           )}
         </form>
