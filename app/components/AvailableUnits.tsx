@@ -148,7 +148,7 @@ function previousCardSlide(
               <button
               type="button"
               onClick={() => openUnit(unit, currentSlide)}
-               className="relative block h-[300px] w-full overflow-hidden bg-gray-100 text-left sm:h-[340px]"
+               className="relative block aspect-[16/9] w-full overflow-hidden bg-gray-100 text-left"
                aria-label={`View ${unit.name} photo ${currentSlide + 1}`}
               >
               <img
@@ -162,7 +162,7 @@ function previousCardSlide(
               {/* VIDEO */}
 
               {isVideo && unit.video && (
-              <div className="relative h-[300px] w-full overflow-hidden bg-black sm:h-[340px]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-black">
 
               <video
               src={unit.video}
