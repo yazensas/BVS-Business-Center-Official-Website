@@ -255,9 +255,8 @@ function previousCardSlide(
              );
            })()}
 
-        {/* CARD INFORMATION */}
-
-
+        </div>
+                
                 {/* CARD INFORMATION */}
 
                 <div className="p-5">
