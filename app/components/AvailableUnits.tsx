@@ -103,23 +103,22 @@ function previousCardSlide(
 
           {/* SECTION HEADER */}
 
-          <div className="mx-auto max-w-4xl text-center">
+       <div className="mx-auto max-w-7xl">
 
-  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-blue-600">
-    Available at BVS
-  </p>
+       <p className="text-sm font-medium uppercase tracking-[0.18em] text-gray-500">
+         Available at BVS
+       </p>
 
-  <h2 className="mt-4 text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
-    Find your next office.
-  </h2>
+       <h2 className="mt-4 max-w-3xl text-5xl font-medium leading-[1.05] tracking-[-0.03em] text-gray-900 sm:text-6xl">
+        Find your next office.
+       </h2>
 
-  <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
-    Explore our currently available furnished offices.
-    View photos, facilities, pricing and availability for
-    each unit.
-  </p>
+       <p className="mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
+         Explore our currently available furnished offices. View photos,
+         facilities, pricing and availability for each unit.
+       </p>
 
-</div>
+       </div>
 
           {/* =================================================
               UNIT CARDS
