@@ -101,11 +101,11 @@ function previousCardSlide(
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-  <div className="mx-auto max-w-3xl text-center">
+<div className="mx-auto max-w-3xl text-center">
 
-    <p className="text-sm font-medium tracking-[0.18em] text-gray-500">
-      Available at BVS
-    </p>
+<p className="text-sm font-medium tracking-[0.18em] text-gray-500">
+  Available at BVS
+</p>
 
     <h2 className="mt-4 text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-gray-900 sm:text-6xl">
       Find your
