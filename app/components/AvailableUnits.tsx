@@ -98,50 +98,43 @@ export default function AvailableUnits() {
                 className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
 
-                {/* PHOTO */}
+               {/* PHOTO GALLERY */}
 
-                <button
-                  type="button"
-                  onClick={() => openUnit(unit)}
-                  className="relative block w-full overflow-hidden bg-gray-100 text-left"
-                  aria-label={`View ${unit.name} photos`}
-                >
+             <button
+             type="button"
+             onClick={() => openUnit(unit)}
+             className="relative block w-full overflow-hidden bg-gray-100 text-left"
+             aria-label={`View ${unit.name} photos`}
+             >
+             <div className="grid aspect-[4/3] grid-cols-2 grid-rows-2 gap-0.5 bg-white">
+             {unit.photos.slice(0, 4).map((photo, index) => (
+             <div
+             key={photo}
+             className="min-h-0 overflow-hidden bg-gray-200"
+            >
+            <img
+            src={photo}
+            alt={`${unit.name} photo ${index + 1}`}
+            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            </div>
+            ))}
+            </div>
 
-                  <div className="aspect-[4/3]">
+            <span className="absolute left-4 top-4 rounded-full bg-green-600 px-3 py-1.5 text-xs font-semibold text-white shadow-md">
+            {unit.status}
+            </span>
 
-                    <img
-                      src={unit.photos[0]}
-                      alt={`${unit.name} at BVS Business Center`}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    />
+           <span className="absolute bottom-4 left-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
+           📷 {unit.photos.length} Photos
+           </span>
 
-                  </div>
-
-
-                  {/* AVAILABLE */}
-
-                  <span className="absolute left-4 top-4 rounded-full bg-green-600 px-3 py-1.5 text-xs font-semibold text-white shadow-md">
-                    {unit.status}
-                  </span>
-
-
-                  {/* PHOTO COUNT */}
-
-                  <span className="absolute bottom-4 left-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
-                    📷 {unit.photos.length} Photos
-                  </span>
-
-
-                  {/* VIDEO */}
-
-                  {unit.video && (
-                    <span className="absolute bottom-4 right-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
-                      ▶ Video
-                    </span>
-                  )}
-
-                </button>
-
+           {unit.video && (
+           <span className="absolute bottom-4 right-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
+           ▶ Video
+           </span>
+           )}
+           </button>
 
                 {/* CARD INFORMATION */}
 
