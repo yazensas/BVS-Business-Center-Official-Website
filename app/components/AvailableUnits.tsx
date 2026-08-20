@@ -101,27 +101,29 @@ function previousCardSlide(
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
-        <p className="text-sm font-medium tracking-[0.18em] text-gray-500">
-          Available at BVS
-        </p>
+  <div className="mx-auto max-w-3xl text-center">
 
-        <h2 className="mt-4 max-w-3xl text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-gray-900 sm:text-6xl">
-          Find your
-          <br />
-          next office.
-        </h2>
+    <p className="text-sm font-medium tracking-[0.18em] text-gray-500">
+      Available at BVS
+    </p>
 
-        <p className="mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
-          Explore our currently available furnished offices. View photos,
-          facilities, pricing and availability for each unit.
-         </p>
+    <h2 className="mt-4 text-5xl font-medium leading-[1.02] tracking-[-0.035em] text-gray-900 sm:text-6xl">
+      Find your
+      <br />
+      next office.
+    </h2>
 
-         </div>
+    <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
+      Explore our currently available furnished offices. View photos,
+      facilities, pricing and availability for each unit.
+    </p>
+
+  </div>
           {/* =================================================
               UNIT CARDS
               ================================================= */}
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
 
            {units.map((unit) => (
 
@@ -146,13 +148,13 @@ function previousCardSlide(
               <button
               type="button"
               onClick={() => openUnit(unit, currentSlide)}
-               className="relative block h-[175px] w-full overflow-hidden bg-gray-200 text-left"
+               className="relative block h-[300px] w-full overflow-hidden bg-gray-100 text-left sm:h-[340px]"
                aria-label={`View ${unit.name} photo ${currentSlide + 1}`}
               >
               <img
               src={unit.photos[currentSlide]}
               alt={`${unit.name} photo ${currentSlide + 1}`}
-              className="mx-auto h-[100px] w-auto object-contain"
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
               />
               </button>
               )}
@@ -160,7 +162,7 @@ function previousCardSlide(
               {/* VIDEO */}
 
               {isVideo && unit.video && (
-              <div className="relative h-[175px] w-full overflow-hidden bg-black">
+              <div className="relative h-[300px] w-full overflow-hidden bg-black sm:h-[340px]">
 
               <video
               src={unit.video}
