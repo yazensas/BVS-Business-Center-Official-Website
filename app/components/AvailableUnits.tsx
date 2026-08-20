@@ -151,13 +151,13 @@ function previousCardSlide(
               <button
               type="button"
               onClick={() => openUnit(unit, currentSlide)}
-               className="relative block h-[55px] w-full overflow-hidden bg-gray-200 text-left"
+               className="relative block h-[175px] w-full overflow-hidden bg-gray-200 text-left"
                aria-label={`View ${unit.name} photo ${currentSlide + 1}`}
               >
               <img
               src={unit.photos[currentSlide]}
               alt={`${unit.name} photo ${currentSlide + 1}`}
-              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              className="h-full w-full object-contain transition duration-500"
               />
               </button>
               )}
