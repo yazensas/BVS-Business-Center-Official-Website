@@ -165,7 +165,7 @@ function previousCardSlide(
               {/* VIDEO */}
 
               {isVideo && unit.video && (
-              <div className="relative h-[55px] w-full overflow-hidden bg-black"">
+              <div className="relative h-[55px] w-full overflow-hidden bg-black">
 
               <video
               src={unit.video}
