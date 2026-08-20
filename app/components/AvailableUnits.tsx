@@ -106,7 +106,7 @@ export default function AvailableUnits() {
              className="relative block w-full overflow-hidden bg-gray-100 text-left"
              aria-label={`View ${unit.name} photos`}
              >
-             <div className="grid aspect-[4/3] grid-cols-2 grid-rows-2 gap-0.5 bg-white">
+             <div className="grid aspect-[16/10] grid-cols-2 grid-rows-2 gap-0.5">
              {unit.photos.slice(0, 4).map((photo, index) => (
              <div
              key={photo}
