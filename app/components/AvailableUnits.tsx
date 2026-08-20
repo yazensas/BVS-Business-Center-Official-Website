@@ -8,13 +8,14 @@ const WHATSAPP_NUMBER = "971525189306";
 export default function AvailableUnits() {
   const [selectedUnit, setSelectedUnit] = useState<Unit | null>(null);
   const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const [cardSlides, setCardSlides] = useState<Record<string, number>>({});
 
- function openUnit(unit: Unit) {
-  console.log("UNIT BUTTON CLICKED:", unit.id);
-  setSelectedUnit(unit);
-  setSelectedPhoto(0);
-  document.body.style.overflow = "hidden";
-}
+   function openUnit(unit: Unit, photoIndex = 0) {
+    console.log("UNIT BUTTON CLICKED:", unit.id);
+    setSelectedUnit(unit);
+    setSelectedPhoto(photoIndex);
+    document.body.style.overflow = "hidden";
+  }
 
   function closeUnit() {
     setSelectedUnit(null);
@@ -39,6 +40,42 @@ export default function AvailableUnits() {
         selectedUnit.photos.length
     );
   }
+  function getCardSlide(unit: Unit) {
+  return cardSlides[unit.id] ?? 0;
+}
+
+function nextCardSlide(
+  event: React.MouseEvent,
+  unit: Unit
+) {
+  event.stopPropagation();
+
+  const totalSlides =
+    unit.photos.length + (unit.video ? 1 : 0);
+
+  setCardSlides((current) => ({
+    ...current,
+    [unit.id]:
+      ((current[unit.id] ?? 0) + 1) % totalSlides,
+  }));
+}
+
+function previousCardSlide(
+  event: React.MouseEvent,
+  unit: Unit
+) {
+  event.stopPropagation();
+
+  const totalSlides =
+    unit.photos.length + (unit.video ? 1 : 0);
+
+  setCardSlides((current) => ({
+    ...current,
+    [unit.id]:
+      ((current[unit.id] ?? 0) - 1 + totalSlides) %
+      totalSlides,
+  }));
+}
 
   useEffect(() => {
     return () => {
@@ -98,43 +135,132 @@ export default function AvailableUnits() {
                 className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
 
-               {/* PHOTO GALLERY */}
+               {/* PHOTO / VIDEO SLIDER */}
 
-             <button
-             type="button"
-             onClick={() => openUnit(unit)}
-             className="relative block w-full overflow-hidden bg-gray-100 text-left"
-             aria-label={`View ${unit.name} photos`}
-             >
-             <div className="grid aspect-[16/10] grid-cols-2 grid-rows-2 gap-0.5">
-             {unit.photos.slice(0, 4).map((photo, index) => (
-             <div
-             key={photo}
-             className="min-h-0 overflow-hidden bg-gray-200"
+              <div className="relative overflow-hidden bg-gray-100">
+
+              {(() => {
+              const currentSlide = getCardSlide(unit);
+              const isVideo = currentSlide === unit.photos.length;
+
+              return (
+              <>
+              {/* PHOTO */}
+
+              {!isVideo && (
+              <button
+              type="button"
+              onClick={() => openUnit(unit, currentSlide)}
+               className="relative block h-[160px] w-full overflow-hidden bg-gray-200 text-left sm:h-[175px]"
+               aria-label={`View ${unit.name} photo ${currentSlide + 1}`}
+              >
+              <img
+              src={unit.photos[currentSlide]}
+              alt={`${unit.name} photo ${currentSlide + 1}`}
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              </button>
+              )}
+
+              {/* VIDEO */}
+
+              {isVideo && unit.video && (
+              <div className="relative h-[160px] w-full overflow-hidden bg-black sm:h-[175px]">
+
+              <video
+              src={unit.video}
+              muted
+              playsInline
+              preload="metadata"
+              className="h-full w-full object-cover"
+              />
+
+            <button
+              type="button"
+              onClick={() => openUnit(unit)}
+              className="absolute inset-0 flex items-center justify-center"
+              aria-label={`Watch ${unit.name} video`}
             >
-            <img
-            src={photo}
-            alt={`${unit.name} photo ${index + 1}`}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-xl text-gray-900 shadow-lg">
+                ▶
+              </span>
+            </button>
+
+          </div>
+        )}
+
+        {/* AVAILABLE */}
+
+        <span className="absolute left-3 top-3 rounded-full bg-green-600 px-2.5 py-1 text-[10px] font-semibold text-white shadow-md">
+          {unit.status}
+        </span>
+
+        {/* PREVIOUS */}
+
+        <button
+          type="button"
+          onClick={(event) =>
+            previousCardSlide(event, unit)
+          }
+          className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-xl text-white shadow-md transition hover:bg-black/80"
+          aria-label={`Previous ${unit.name} media`}
+        >
+          ‹
+        </button>
+
+        {/* NEXT */}
+
+        <button
+          type="button"
+          onClick={(event) =>
+            nextCardSlide(event, unit)
+          }
+          className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-xl text-white shadow-md transition hover:bg-black/80"
+          aria-label={`Next ${unit.name} media`}
+        >
+          ›
+        </button>
+
+        {/* DOTS */}
+
+        <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1.5">
+
+          {unit.photos.map((_, index) => (
+            <span
+              key={`${unit.id}-dot-${index}`}
+              className={`h-1.5 w-1.5 rounded-full ${
+                currentSlide === index
+                  ? "bg-white"
+                  : "bg-white/40"
+              }`}
             />
-            </div>
-            ))}
-            </div>
+          ))}
 
-            <span className="absolute left-4 top-4 rounded-full bg-green-600 px-3 py-1.5 text-xs font-semibold text-white shadow-md">
-            {unit.status}
-            </span>
+          {unit.video && (
+            <span
+              className={`h-1.5 w-1.5 rounded-full ${
+                isVideo
+                  ? "bg-white"
+                  : "bg-white/40"
+              }`}
+            />
+          )}
 
-           <span className="absolute bottom-4 left-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
-           📷 {unit.photos.length} Photos
-           </span>
+        </div>
 
-           {unit.video && (
-           <span className="absolute bottom-4 right-4 rounded-full bg-black/70 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
-           ▶ Video
-           </span>
-           )}
-           </button>
+        {/* COUNTER */}
+
+        <div className="absolute bottom-3 right-3 rounded-full bg-black/60 px-2.5 py-1.5 text-[10px] font-medium text-white">
+          {isVideo
+            ? "▶ Video"
+            : `${currentSlide + 1} / ${unit.photos.length}`}
+        </div>
+
+      </>
+    );
+  })()}
+
+</div>
 
                 {/* CARD INFORMATION */}
 
