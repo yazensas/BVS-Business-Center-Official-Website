@@ -157,7 +157,7 @@ function previousCardSlide(
               <img
               src={unit.photos[currentSlide]}
               alt={`${unit.name} photo ${currentSlide + 1}`}
-              className="h-full w-full object-contain transition duration-500"
+              className="mx-auto h-[100px] w-auto object-contain"
               />
               </button>
               )}
