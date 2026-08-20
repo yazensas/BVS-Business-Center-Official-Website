@@ -337,8 +337,7 @@ function previousCardSlide(
             </article>
             ))}
           </div>
-
-        </div>
+        
       </section>
 
 
