@@ -123,7 +123,7 @@ function previousCardSlide(
 
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
-            {units.map((unit) => (
+           {units.map((unit) => (
 
               <article
                 key={unit.id}
@@ -135,12 +135,12 @@ function previousCardSlide(
               <div className="relative overflow-hidden bg-gray-100">
 
               {(() => {
-              const currentSlide = getCardSlide(unit);
-              const isVideo = currentSlide === unit.photos.length;
+                const currentSlide = getCardSlide(unit);
+                const isVideo = currentSlide === unit.photos.length;
 
-              return (
-              <>
-              {/* PHOTO */}
+               return (
+                 <>
+                    {/* PHOTO */}
 
               {!isVideo && (
               <button
@@ -160,7 +160,7 @@ function previousCardSlide(
               {/* VIDEO */}
 
               {isVideo && unit.video && (
-              <div className="relative h-[55px] w-full overflow-hidden bg-black">
+              <div className="relative h-[175px] w-full overflow-hidden bg-black">
 
               <video
               src={unit.video}
@@ -246,16 +246,17 @@ function previousCardSlide(
         {/* COUNTER */}
 
         <div className="absolute bottom-3 right-3 rounded-full bg-black/60 px-2.5 py-1.5 text-[10px] font-medium text-white">
-          {isVideo
-            ? "▶ Video"
-            : `${currentSlide + 1} / ${unit.photos.length}`}
+        {isVideo
+        ? "▶ Video"
+        : `${currentSlide + 1} / ${unit.photos.length}`}
         </div>
 
-      </>
-    );
-  })()}
+            </>
+             );
+           })()}
 
-</div>
+        {/* CARD INFORMATION */}
+
 
                 {/* CARD INFORMATION */}
 
@@ -334,10 +335,8 @@ function previousCardSlide(
 
                 </div>
 
-              </article>
-
+            </article>
             ))}
-
           </div>
 
         </div>
