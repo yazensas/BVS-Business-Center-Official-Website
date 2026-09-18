@@ -156,7 +156,8 @@ function previousCardSlide(
               alt={`${unit.name} photo ${currentSlide + 1}`}
               className="absolute inset-0 h-full w-full object-cover"
               />
-
+                </button>
+              )}
               {/* VIDEO */}
 
               {isVideo && unit.video && (
