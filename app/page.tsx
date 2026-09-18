@@ -330,7 +330,7 @@ export default function Home() {
           <div><span>Workspaces</span><a href="#workspaces">Private offices</a><a href="#workspaces">Meeting rooms</a><a href="#workspaces">Flexible desks</a><a href="#workspaces">Virtual office</a></div>
           <div><span>Contact</span><a href="tel:+97144478808">+971 4 447 8808</a><p>Offices 203–208, 2nd Floor<br />Barsha Valley Building<br />Al Barsha 1, Dubai</p></div>
         </div>
-        <div className="footer-bottom"><span>© 2026 BVS Business Center</span><span>Custom website design preview</span></div>
+        <div className="footer-bottom"><span>© 2026 BVS Business Center</span></div>
       </footer>
     </main>
   );
