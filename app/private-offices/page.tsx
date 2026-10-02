@@ -20,25 +20,10 @@ export default function PrivateOfficesPage() {
 
 
       {/* Hero */}
-      <section
-        style={{
-          padding: "90px 6% 70px",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
-      >
-        <p
-          style={{
-            fontSize: "13px",
-            letterSpacing: "2px",
-            textTransform: "uppercase",
-            marginBottom: "20px",
-            color: "#777",
-          }}
-        >
-          Al Barsha 1 · Dubai
-        </p>
-
+      <section className="private-offices-hero">
+        <p className="eyebrow">
+  Al Barsha 1 · Dubai
+</p>
         <h1
           style={{
             fontSize: "clamp(42px, 7vw, 82px)",
