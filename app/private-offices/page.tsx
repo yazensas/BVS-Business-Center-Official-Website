@@ -10,14 +10,7 @@ export default function PrivateOfficesPage() {
   return (
     <main className="private-offices-page">
       {/* Header */}
-      <header
-        style={{
-          padding: "24px 6%",
-          borderBottom: "1px solid #ddd8cf",
-          background: "#1d1d1b",
-          color: "#fff",
-        }}
-      >
+      <header className="site-header">
 
         <Link
           href="/"
