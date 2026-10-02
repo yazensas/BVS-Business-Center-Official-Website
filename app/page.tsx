@@ -123,6 +123,47 @@ export default function Home() {
 
   return (
     <main id="top">
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "BVS Business Center",
+      url: "https://bvsbusinesscenter.com/",
+      telephone: "+97144478808",
+      priceRange: "AED",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "373 16A St",
+        addressLocality: "Al Barsha First",
+        addressRegion: "Dubai",
+        addressCountry: "AE",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 25.1097876,
+        longitude: 55.2036161,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "09:00",
+          closes: "17:00",
+        },
+      ],
+    }),
+  }}
+/>
+
       <div className="announcement">
         <p>Private offices and flexible workspace in Al Barsha 1, Dubai</p>
         <a href="tel:+97144478808">Talk to our team <span>+971 4 447 8808</span></a>
