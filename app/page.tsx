@@ -11,14 +11,14 @@ import AvailableUnits from "./components/AvailableUnits";
 
 const workspaces = [
   {
-  number: "01",
-  title: "Private offices",
-  text: "Fully furnished, secure offices for focused teams and established businesses.",
-  meta: "For 1–12 people",
-  image: "/bvs-corridor.jpg",
-  href: "/private-offices",
-},
-
+    number: "01",
+    title: "Private offices",
+    text: "Fully furnished, secure offices for focused teams and established businesses.",
+    meta: "For 1–12 people",
+    image: "/bvs-corridor.jpg",
+    href: "/private-offices",
+  },
+  {
     number: "02",
     title: "Meeting rooms",
     text: "Professional rooms for pitches, workshops, interviews and client conversations.",
