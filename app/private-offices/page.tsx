@@ -12,17 +12,12 @@ export default function PrivateOfficesPage() {
       {/* Header */}
       <header className="site-header">
 
-        <Link
-          href="/"
-          style={{
-            color: "#fff",
-            textDecoration: "none",
-            fontWeight: 600,
-          }}
-        >
+        <Link href="/" className="brand brand-inverse">
           BVS Business Center
         </Link>
+
       </header>
+
 
       {/* Hero */}
       <section
