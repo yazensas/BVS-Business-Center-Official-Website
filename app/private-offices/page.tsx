@@ -8,13 +8,7 @@ export const metadata = {
 
 export default function PrivateOfficesPage() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#f5f3ee",
-        color: "#1d1d1b",
-      }}
-    >
+    <main className="private-offices-page">
       {/* Header */}
       <header
         style={{
@@ -24,6 +18,7 @@ export default function PrivateOfficesPage() {
           color: "#fff",
         }}
       >
+
         <Link
           href="/"
           style={{
