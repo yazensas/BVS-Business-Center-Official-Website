@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Private Offices in Al Barsha, Dubai | BVS Business Center",
   description:
-    "Furnished private offices in Al Barsha 1, Dubai, from AED 29,000 per year. Annual contracts with Ejari, internet, DEWA, AC, water and receptionist support included.",
+    "Furnished private offices in Al Barsha 1, Dubai, from AED 29,000 per year plus VAT. Annual contracts with Ejari, internet, DEWA, AC, water and receptionist support included.",
 };
 
 const included = [
@@ -36,9 +36,9 @@ const included = [
 
 const faqs = [
   {
-    q: "How much do private offices cost?",
-    a: "Private offices at BVS Business Center are currently priced from AED 29,000 to AED 35,000 per year, depending on the office and availability.",
-  },
+  q: "How much do private offices cost?",
+  a: "Private offices at BVS Business Center are currently priced from AED 29,000 to AED 35,000 per year, plus VAT, depending on the office and availability.",
+},
   {
     q: "Are the private offices furnished?",
     a: "Yes. Our private offices are furnished and designed to be ready for business. Contact the team to confirm the furniture and setup of a specific available office.",
@@ -130,10 +130,11 @@ export default function PrivateOfficesPage() {
             <p className="private-label">Private office pricing</p>
 
             <h2>
-              AED 29,000–35,000
+            AED 29,000–35,000
             </h2>
 
-            <p className="price-period">per year</p>
+            <p className="price-period">per year + VAT</p>
+            
           </div>
 
           <div className="price-note">
@@ -170,8 +171,8 @@ export default function PrivateOfficesPage() {
 
             <div className="private-facts">
               <div>
-                <span>Pricing</span>
-                <strong>AED 29,000–35,000 / year</strong>
+              <span>Pricing</span>
+              <strong>AED 29,000–35,000 / year + VAT</strong>
               </div>
 
               <div>
