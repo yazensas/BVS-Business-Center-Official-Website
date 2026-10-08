@@ -7,7 +7,6 @@ declare global {
     gtag?: (...args: any[]) => void;
   }
 }
-import AvailableUnits from "./components/AvailableUnits";
 
 const workspaces = [
   {
@@ -240,9 +239,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <AvailableUnits />
-
+      
       <section className="experience" id="experience">
         <div className="experience-visual">
           <div className="experience-photo" role="img" aria-label="Elegant shared business lounge" />
