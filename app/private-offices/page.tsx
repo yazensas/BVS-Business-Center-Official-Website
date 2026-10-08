@@ -7,37 +7,50 @@ export const metadata = {
 };
 
 const included = [
-  "Furnished office",
-  "Ejari",
-  "Internet / Wi-Fi",
-  "DEWA",
-  "Air conditioning",
-  "Water",
-  "Receptionist support",
+  ["01", "Furnished offices", "Move-in ready workspaces designed for professional teams."],
+  ["02", "Ejari", "Ejari support for businesses requiring a Dubai business address."],
+  ["03", "Internet / Wi-Fi", "High-speed connectivity for your everyday business needs."],
+  ["04", "DEWA & AC", "Electricity, water and air conditioning included."],
+  ["05", "Reception support", "Professional support for your visitors and working day."],
+];
+
+const whyBvs = [
+  ["01", "Professional address", "Establish your business in a professional Al Barsha 1 location."],
+  ["02", "Ready to move in", "Furnished offices and essential services are already in place."],
+  ["03", "Support when you need it", "Our team is available to help with your workspace and business centre needs."],
+];
+
+const faqs = [
+  {
+    q: "How much do private offices cost?",
+    a: "Private offices at BVS Business Center are currently priced from AED 29,000 to AED 35,000 per year, depending on the office and availability.",
+  },
+  {
+    q: "Are the private offices furnished?",
+    a: "Yes. Our private offices are furnished and designed to be ready for business. Contact the team to confirm the furniture and setup of a specific available office.",
+  },
+  {
+    q: "Is Ejari included?",
+    a: "Ejari support is included with the private office offering. Our team can explain the registration process and requirements during your viewing.",
+  },
+  {
+    q: "What is included in the office price?",
+    a: "The private office package includes the furnished office, Ejari, internet/Wi-Fi, DEWA, air conditioning, water and receptionist support.",
+  },
+  {
+    q: "Can I view an office before renting?",
+    a: "Yes. Contact BVS Business Center to arrange a viewing and see the currently available private offices.",
+  },
 ];
 
 export default function PrivateOfficesPage() {
   return (
     <main className="private-offices-page">
 
-      {/* TOP ANNOUNCEMENT */}
-      <div className="announcement">
-        <p>Private offices in Al Barsha 1, Dubai</p>
-
-        <a href="tel:+97144478808">
-          Talk to our team <span>+971 4 447 8808</span>
-        </a>
-      </div>
-
       {/* HEADER */}
-      <header className="site-header private-header">
-        <Link
-          href="/"
-          className="brand brand-inverse"
-          aria-label="BVS Business Center home"
-        >
+      <header className="site-header">
+        <Link href="/" className="brand brand-inverse">
           <span className="brand-mark">BVS</span>
-
           <span className="brand-name">
             Business
             <br />
@@ -45,405 +58,276 @@ export default function PrivateOfficesPage() {
           </span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
-          <Link href="/">Home</Link>
-          <Link href="/#workspaces">Workspaces</Link>
-          <Link href="/#experience">Why BVS</Link>
-          <Link href="/#location">Location</Link>
-          <Link href="/#faq">FAQs</Link>
+        <nav className="private-nav">
+          <a href="#private-offices">Private offices</a>
+          <a href="#included">What's included</a>
+          <a href="#faq">FAQs</a>
+          <a href="#viewing">Book a viewing ↗</a>
         </nav>
 
-        <a className="header-cta" href="/#enquire">
-          Book a viewing <span>↗</span>
+        <a className="private-header-phone" href="tel:+97144478808">
+          Call us ↗
         </a>
       </header>
 
       {/* HERO */}
-      <section className="private-hero">
-        <div className="private-hero-copy">
+      <section className="private-hero" id="private-offices">
+        <div className="private-container private-hero-inner">
 
-          <p className="eyebrow">
-            Private offices · Al Barsha 1 · Dubai
-          </p>
-
-          <h1>
-            Private offices
-            <br />
-            <em>in Al Barsha, Dubai.</em>
-          </h1>
-
-          <p className="private-hero-intro">
-            Fully furnished private offices for teams that want a professional
-            Dubai address, a ready-to-use workspace and straightforward
-            business support.
-          </p>
-
-          <div className="private-hero-actions">
-            <a className="button button-light" href="/#enquire">
-              Request a viewing <span>↗</span>
-            </a>
-
-            <a
-              className="text-link"
-              href="tel:+97144478808"
-            >
-              Call +971 4 447 8808 <span>→</span>
-            </a>
-          </div>
-
-          <div className="private-hero-facts">
-            <div>
-              <span>From</span>
-              <strong>AED 29,000 / year</strong>
-            </div>
-
-            <div>
-              <span>Location</span>
-              <strong>Al Barsha 1, Dubai</strong>
-            </div>
-
-            <div>
-              <span>Contract</span>
-              <strong>Annual</strong>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="private-hero-image">
-          <div className="private-image-label">
-            <p>
-              Furnished offices.
-              <br />
-              Ready for business.
+          <div className="private-hero-copy">
+            <p className="eyebrow">
+              Private offices · Al Barsha 1 · Dubai
             </p>
 
-            <span>BVS / PRIVATE OFFICES</span>
+            <h1>
+              Private offices in
+              <br />
+              <em>Al Barsha, Dubai.</em>
+            </h1>
+
+            <p className="private-hero-text">
+              Furnished private offices for businesses looking for a
+              professional Dubai address and a ready-to-use workspace.
+            </p>
+
+            <div className="private-actions">
+              <a className="private-button" href="#viewing">
+                Request a viewing <span>↗</span>
+              </a>
+
+              <a
+                className="private-text-link"
+                href="tel:+97144478808"
+              >
+                Call +971 4 447 8808 <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="private-hero-image">
+            <div>
+              <p>
+                Professional spaces.
+                <br />
+                Ready when you are.
+              </p>
+
+              <span>
+                BVS / PRIVATE
+                <br />
+                OFFICES
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* PRICE */}
+      <section className="private-price">
+        <div className="private-container private-price-inner">
+          <div>
+            <p className="private-label">Private office pricing</p>
+
+            <h2>
+              AED 29,000–35,000
+            </h2>
+
+            <p className="private-price-period">
+              per year
+            </p>
+          </div>
+
+          <div className="private-price-note">
+            <strong>Ready for business.</strong>
+            <p>
+              Furnished offices with Ejari, internet, DEWA, AC,
+              water and receptionist support included.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* PRICE STRIP */}
-      <section className="private-price-strip">
-        <div>
-          <p className="eyebrow">Annual office pricing</p>
-
-          <h2>
-            AED 29,000–35,000
-            <span> / year</span>
-          </h2>
-        </div>
-
-        <p>
-          Prices vary by office size and availability. Contact the BVS team
-          for the currently available units.
-        </p>
-      </section>
-
-      {/* INTRO / INCLUDED */}
-      <section className="private-section private-included">
-
-        <div className="private-section-intro">
-          <p className="eyebrow">
-            What's included
-          </p>
-
-          <h2>
-            Ready for
-            <br />
-            <em>business.</em>
-          </h2>
-
-          <p>
-            Your office is prepared so you can focus on running your business,
-            rather than setting up an office from scratch.
-          </p>
-        </div>
-
-        <div className="private-included-list">
-
-          {included.map((item, index) => (
-            <div
-              className="private-included-item"
-              key={item}
-            >
-              <span>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <strong>{item}</strong>
-
-              <b>✓</b>
-            </div>
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* KEY DETAILS */}
+      {/* QUICK DETAILS */}
       <section className="private-details">
+        <div className="private-container private-details-grid">
 
-        <div className="private-detail">
-          <p className="eyebrow">Contract</p>
+          <div>
+            <span>Pricing</span>
+            <strong>AED 29,000–35,000 / year</strong>
+          </div>
 
-          <h3>Annual contracts</h3>
+          <div>
+            <span>Contract</span>
+            <strong>Annual contracts</strong>
+          </div>
 
-          <p>
-            Straightforward annual office arrangements for businesses looking
-            for a stable Dubai workspace.
-          </p>
+          <div>
+            <span>Location</span>
+            <strong>Al Barsha 1, Dubai</strong>
+          </div>
+
+          <div>
+            <span>Parking</span>
+            <strong>Not included</strong>
+          </div>
+
         </div>
+      </section>
 
-        <div className="private-detail">
-          <p className="eyebrow">Parking</p>
+      {/* INCLUDED */}
+      <section className="private-included section-pad" id="included">
+        <div className="private-container private-two-column">
 
-          <h3>Parking is not included</h3>
+          <div className="private-section-intro">
+            <p className="eyebrow">What's included</p>
 
-          <p>
-            Please speak with the BVS team about available parking options
-            around the building.
-          </p>
+            <h2>
+              Everything
+              <br />
+              <em>you need.</em>
+            </h2>
+
+            <p>
+              Your office is designed to be ready for business from
+              the moment you move in.
+            </p>
+          </div>
+
+          <div className="private-list">
+            {included.map(([number, title, text]) => (
+              <div className="private-list-item" key={title}>
+                <span>{number}</span>
+
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+
+                <b>＋</b>
+              </div>
+            ))}
+          </div>
+
         </div>
-
-        <div className="private-detail">
-          <p className="eyebrow">Location</p>
-
-          <h3>Al Barsha 1, Dubai</h3>
-
-          <p>
-            Barsha Valley Building, with convenient access to the surrounding
-            Al Barsha business and commercial areas.
-          </p>
-        </div>
-
       </section>
 
       {/* WHY BVS */}
       <section className="private-why">
+        <div className="private-container private-two-column">
 
-        <div className="private-why-image">
-          <div>
-            <span>BVS / 01</span>
+          <div className="private-section-intro">
+            <p className="eyebrow">Why BVS</p>
+
+            <h2>
+              A workspace that
+              <br />
+              <em>works for you.</em>
+            </h2>
+
+            <p>
+              From your first viewing to moving in, BVS keeps the
+              process straightforward so you can concentrate on
+              running your business.
+            </p>
           </div>
-        </div>
 
-        <div className="private-why-copy">
+          <div className="private-list private-list-light">
+            {whyBvs.map(([number, title, text]) => (
+              <div className="private-list-item" key={title}>
+                <span>{number}</span>
 
-          <p className="eyebrow">
-            The BVS experience
-          </p>
-
-          <h2>
-            More than
-            <br />
-            <em>an office.</em>
-          </h2>
-
-          <p className="private-lead">
-            A private office should give your team more than four walls.
-            BVS combines a professional setting with practical support for
-            your everyday business needs.
-          </p>
-
-          <div className="private-benefits">
-
-            <div>
-              <span>01</span>
-
-              <div>
-                <h3>Professional first impression</h3>
-
-                <p>
-                  Give clients and visitors a polished place to meet in
-                  Al Barsha.
-                </p>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
               </div>
-            </div>
-
-            <div>
-              <span>02</span>
-
-              <div>
-                <h3>Ready to use</h3>
-
-                <p>
-                  Move into a furnished workspace without building an office
-                  from the ground up.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <span>03</span>
-
-              <div>
-                <h3>Business support</h3>
-
-                <p>
-                  Reception and practical workspace services help keep the
-                  working day moving.
-                </p>
-              </div>
-            </div>
-
+            ))}
           </div>
 
         </div>
-
       </section>
 
-      {/* WHO IT IS FOR */}
-      <section className="private-who">
+      {/* FAQ */}
+      <section className="private-faq section-pad" id="faq">
+        <div className="private-container private-two-column">
 
-        <div>
-          <p className="eyebrow">
-            Built for your business
-          </p>
+          <div className="private-section-intro">
+            <p className="eyebrow">Good to know</p>
 
-          <h2>
-            A private base
-            <br />
-            <em>that fits your team.</em>
-          </h2>
-        </div>
+            <h2>
+              Questions,
+              <br />
+              <em>answered.</em>
+            </h2>
 
-        <div className="private-who-grid">
-
-          <div>
-            <span>01</span>
-            <h3>Small teams</h3>
             <p>
-              A dedicated professional environment for focused day-to-day
-              work.
+              Still have a question? Call the BVS team on{" "}
+              <a href="tel:+97144478808">
+                +971 4 447 8808
+              </a>.
             </p>
           </div>
 
-          <div>
-            <span>02</span>
-            <h3>Growing businesses</h3>
-            <p>
-              A more established workspace as your team and client base grow.
-            </p>
-          </div>
+          <div className="private-faq-list">
+            {faqs.map((faq, index) => (
+              <details key={faq.q}>
+                <summary>
+                  <span>0{index + 1}</span>
+                  <strong>{faq.q}</strong>
+                  <b>＋</b>
+                </summary>
 
-          <div>
-            <span>03</span>
-            <h3>Dubai presence</h3>
-            <p>
-              A professional Al Barsha address for businesses operating in
-              Dubai.
-            </p>
+                <p>{faq.a}</p>
+              </details>
+            ))}
           </div>
 
         </div>
-
       </section>
 
-      {/* LOCATION */}
-      <section className="private-location">
-
-        <div className="private-location-copy">
+      {/* FINAL CTA */}
+      <section className="private-cta" id="viewing">
+        <div className="private-cta-inner">
 
           <p className="eyebrow">
-            Connected by location
+            Private offices at BVS
           </p>
 
           <h2>
-            Business,
+            Find the right office
             <br />
-            <em>well positioned.</em>
+            <em>for your team.</em>
           </h2>
 
           <p>
-            Work from a central Al Barsha 1 address with convenient access to
-            Dubai's major commercial districts.
+            Tell us what you need and arrange a viewing of the
+            private offices currently available at BVS Business Center.
           </p>
 
-          <address>
-            Offices 203–208, 2nd Floor
-            <br />
-            Barsha Valley Building
-            <br />
-            Al Barsha 1, Dubai, UAE
-          </address>
-
-          <a
-            href="https://maps.app.goo.gl/WbjsEvxunLHeqoZi6?g_st=ac"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open in Google Maps <span>↗</span>
-          </a>
-
-        </div>
-
-        <div className="private-location-visual">
-          <div className="private-location-card">
-            <span>BVS</span>
-            <strong>Al Barsha 1</strong>
-            <p>Dubai, UAE</p>
-          </div>
-        </div>
-
-      </section>
-
-      {/* CTA */}
-      <section className="private-final">
-
-        <p className="eyebrow">
-          Private offices at BVS
-        </p>
-
-        <h2>
-          Find the right office
-          <br />
-          <em>for your team.</em>
-        </h2>
-
-        <p>
-          Office capacity depends on the size and availability of each unit.
-          Speak with the BVS team to see the offices currently available.
-        </p>
-
-        <div className="private-final-actions">
-
-          <a
-            className="button private-dark-button"
-            href="/#enquire"
-          >
+          <a className="private-button" href="/#enquire">
             Request a viewing <span>↗</span>
           </a>
 
-          <a
-            className="private-call"
-            href="tel:+97144478808"
-          >
-            +971 4 447 8808
-          </a>
+          <div className="private-cta-contact">
+            <span>Prefer to call?</span>
+            <a href="tel:+97144478808">
+              +971 4 447 8808
+            </a>
+          </div>
+
+          <Link href="/" className="private-back">
+            ← Back to BVS Business Center
+          </Link>
 
         </div>
-
-        <Link
-          href="/"
-          className="private-back"
-        >
-          ← Back to BVS Business Center
-        </Link>
-
       </section>
 
       {/* FOOTER */}
       <footer>
-
         <div className="footer-top">
-
-          <Link
-            href="/"
-            className="brand brand-inverse"
-          >
+          <Link href="/" className="brand brand-inverse">
             <span className="brand-mark">BVS</span>
-
             <span className="brand-name">
               Business
               <br />
@@ -452,56 +336,20 @@ export default function PrivateOfficesPage() {
           </Link>
 
           <p>
-            Professional workspace for modern business in the heart of
-            Al Barsha.
+            Professional workspace for modern business in the heart
+            of Al Barsha.
           </p>
 
-          <Link href="/">
-            Back to home ↑
-          </Link>
-
-        </div>
-
-        <div className="footer-grid">
-
-          <div>
-            <span>Explore</span>
-            <Link href="/">Home</Link>
-            <Link href="/#workspaces">Workspaces</Link>
-            <Link href="/#experience">Why BVS</Link>
-            <Link href="/#location">Location</Link>
-          </div>
-
-          <div>
-            <span>Workspaces</span>
-            <Link href="/private-offices">Private offices</Link>
-            <Link href="/#workspaces">Meeting rooms</Link>
-            <Link href="/#workspaces">Flexible desks</Link>
-            <Link href="/#workspaces">Virtual office</Link>
-          </div>
-
-          <div>
-            <span>Contact</span>
-
-            <a href="tel:+97144478808">
-              +971 4 447 8808
-            </a>
-
-            <p>
-              Offices 203–208, 2nd Floor
-              <br />
-              Barsha Valley Building
-              <br />
-              Al Barsha 1, Dubai
-            </p>
-          </div>
-
+          <a href="#private-offices">
+            Back to top ↑
+          </a>
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 BVS Business Center</span>
+          <span>
+            © 2026 BVS Business Center Al Barsha 1, Dubai
+          </span>
         </div>
-
       </footer>
 
     </main>
