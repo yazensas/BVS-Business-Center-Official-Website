@@ -62,7 +62,19 @@ export default function RootLayout({
         </Script>
       </head>
 
-      <body>{children}</body>
+      <body>
+  {children}
+
+  <a
+    href="https://wa.me/971525189306?text=Hi%20BVS%20Business%20Center%2C%20I%20would%20like%20more%20information."
+    className="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <span>🟢 Chat with us on WhatsApp</span>
+  </a>
+</body>
     </html>
   );
 }
