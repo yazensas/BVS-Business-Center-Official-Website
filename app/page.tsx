@@ -225,10 +225,6 @@ export default function Home() {
         </div>
         <div>
           <span>03</span>
-          <strong>All inclusive workspace solutions</strong>
-        </div>
-        <div>
-          <span>04</span>
           <strong>Prime location near Mall of Emirates</strong>
         </div>
       </section>
