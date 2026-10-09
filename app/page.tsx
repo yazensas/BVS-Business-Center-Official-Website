@@ -194,8 +194,12 @@ export default function Home() {
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow">Al Barsha · Dubai</p>
-          <h1>Space to do<br /><em>serious business.</em></h1>
-          <p className="hero-intro">Private offices and flexible business solutions for teams who want a polished Dubai presence—without the usual friction.</p>
+          <h1>Find your space<br /><em>to do business.</em></h1>
+          <p className="hero-intro">
+            Private offices and flexible workspace in Al Barsha, Dubai, with
+            Ejari registration available and clear, practical workspace options
+            for your business.
+          </p>
           <div className="hero-actions">
             <a className="button button-light" href="#workspaces">Explore our spaces <span>↓</span></a>
             <a className="text-link" href="tel:+97144478808">Call +971 4 447 8808 <span>→</span></a>
@@ -210,10 +214,19 @@ export default function Home() {
       </section>
 
       <section className="trust-strip" aria-label="Workspace benefits">
-        <p>Everything your business needs, under one roof.</p>
-        <div><span>01</span><strong>Move-in ready</strong></div>
-        <div><span>02</span><strong>Flexible payments</strong></div>
-        <div><span>03</span><strong>Professional support</strong></div>
+        <p>Practical workspace solutions in Al Barsha, Dubai.</p>
+        <div>
+          <span>01</span>
+          <strong>Offices from AED 29,000/year</strong>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Ejari registration available</strong>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Utilities, internet and service charges included</strong>
+        </div>
       </section>
 
       <section className="workspaces section-pad" id="workspaces">
