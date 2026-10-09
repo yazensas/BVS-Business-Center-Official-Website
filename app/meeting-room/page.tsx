@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "How many people can the meeting room accommodate?",
-    a: "The meeting room can accommodate approximately 10 to 15 people.",
+    a: "The meeting room can accommodate approximately 8 to 10 people.",
   },
   {
     q: "How can I book the meeting room?",
@@ -199,7 +199,7 @@ export default function MeetingRoomPage() {
 
               <div>
                 <span>Capacity</span>
-                <strong>10–15 people</strong>
+                <strong>8–10 people</strong>
               </div>
 
               <div>
