@@ -221,7 +221,7 @@ export default function Home() {
         </div>
         <div>
           <span>02</span>
-          <strong>Ejari available</strong>
+          <strong>Ejari registered office</strong>
         </div>
         <div>
           <span>03</span>
