@@ -217,11 +217,11 @@ export default function Home() {
         <p>Practical workspace solutions in Al Barsha, Dubai.</p>
         <div>
           <span>01</span>
-          <strong>Offices from AED 29,000/year</strong>
+          <strong>Offices starts from AED 29,000/year + VAT</strong>
         </div>
         <div>
           <span>02</span>
-          <strong>Ejari registration available</strong>
+          <strong>Ejari available</strong>
         </div>
         <div>
           <span>03</span>
