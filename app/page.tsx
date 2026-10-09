@@ -178,7 +178,12 @@ export default function Home() {
           <a href="#location">Location</a>
           <a href="#faq">FAQs</a>
         </nav>
-        <a className="header-cta" href="#enquire">Book a viewing <span>↗</span></a>
+
+<a href="/ar/" lang="ar" dir="rtl" style={{ color: "#cbdff8", fontSize: "12px", fontWeight: 700, textDecoration: "none", marginRight: "20px" }}>
+  العربية
+</a>
+
+<a className="header-cta" href="#enquire">Book a viewing <span>↗</span></a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
           <span /><span />
         </button>
