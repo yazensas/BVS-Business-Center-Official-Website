@@ -72,7 +72,7 @@ export default function RootLayout({
     rel="noopener noreferrer"
     aria-label="Chat with us on WhatsApp"
   >
-    <span>🟢 Chat with us on WhatsApp</span>
+    <span>Chat with us on WhatsApp</span>
   </a>
 </body>
     </html>
