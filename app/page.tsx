@@ -179,6 +179,7 @@ export default function Home() {
           <a href="#faq">FAQs</a>
         </nav>
 
+        
         <div className="header-actions">
         <a
          href="/ar/"
@@ -189,10 +190,12 @@ export default function Home() {
          العربية
          </a>
 
+          
          <a className="header-cta" href="#enquire">
          Book a viewing <span>↗</span>
          </a>
         </div>
+        
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
           <span /><span />
         </button>
