@@ -1114,7 +1114,7 @@ footer { padding: 72px 6vw 30px; background: #0a1b1e; color: #f6f1e7; }
 
   padding: 14px 20px;
   border-radius: 50px;
-  background-color: #25d366;
+  background-color: #17324D;
   color: #ffffff;
 
   font-family: Arial, sans-serif;
@@ -1127,12 +1127,12 @@ footer { padding: 72px 6vw 30px; background: #0a1b1e; color: #f6f1e7; }
 }
 
 .whatsapp-float:hover {
-  background-color: #1ebe5d;
+  background-color: #244866;
   transform: translateY(-2px);
 }
 
 .whatsapp-float:focus-visible {
-  outline: 3px solid #128c4a;
+  outline: 3px solid #C7A66A;
   outline-offset: 4px;
 }
 
