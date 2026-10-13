@@ -85,16 +85,17 @@ const faqs = [
 
 export default function ArabicHome() {
   return (
-    <main
-      lang="ar"
-      dir="rtl"
-      style={{
-        fontFamily: "Tahoma, Arial, sans-serif",
-        color: "#292820",
-        background: "#f8f7f3",
-        lineHeight: 1.9,
-        minHeight: "100vh",
-      }}
+    <main lang="ar" dir="rtl" className="arabic-page">
+Then add this CSS to your existing stylesheet:
+css
+
+.arabic-page {
+  min-height: 100vh;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: 'DM Sans', 'Noto Sans Arabic', Tahoma, sans-serif;
+  line-height: 1.7;
+}
     >
       <div
         style={{
