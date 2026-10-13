@@ -22,8 +22,40 @@ img { display: block; width: 100%; }
 .desktop-nav { display: flex; gap: 34px; font-size: 12px; font-weight: 600; }
 .desktop-nav a { opacity: .72; transition: opacity .2s; }
 .desktop-nav a:hover { opacity: 1; }
-.header-cta { justify-self: end; color: var(--blue); font-size: 12px; font-weight: 700; }
-.header-cta span { margin-left: 14px; }
+/* Header action spacing and alignment */
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.header-language {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  line-height: 1;
+  font-size: 12px;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-self: auto;
+  gap: 8px;
+  margin: 0;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.header-cta span {
+  margin-left: 0;
+}
 .menu-button, .mobile-nav { display: none; }
 
 .hero { min-height: 710px; display: grid; grid-template-columns: 49% 51%; background: var(--ink); color: #f6f1e7; }
