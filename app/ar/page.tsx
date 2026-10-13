@@ -89,13 +89,7 @@ export default function ArabicHome() {
 Then add this CSS to your existing stylesheet:
 css
 
-.arabic-page {
-  min-height: 100vh;
-  background: var(--ivory);
-  color: var(--ink);
-  font-family: 'DM Sans', 'Noto Sans Arabic', Tahoma, sans-serif;
-  line-height: 1.7;
-}
+<main lang="ar" dir="rtl" className="arabic-page">
     >
       <div
         style={{
