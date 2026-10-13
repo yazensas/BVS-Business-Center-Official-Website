@@ -86,11 +86,6 @@ const faqs = [
 export default function ArabicHome() {
   return (
     <main lang="ar" dir="rtl" className="arabic-page">
-Then add this CSS to your existing stylesheet:
-css
-
-<main lang="ar" dir="rtl" className="arabic-page">
-    >
       <div
         style={{
           background: "#25251f",
