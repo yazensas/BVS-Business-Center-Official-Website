@@ -8,7 +8,24 @@ const benefits = [ "مكاتب مؤثثة وجاهزة للاستخدام", "م�
 
 const faqs = [ { question: "هل يمكنني زيارة المكاتب قبل اتخاذ القرار؟", answer: "نعم، اتصل بفريقنا لترتيب زيارة والتعرف على المساحات المتاحة.", }, { question: "أين يقع مركز BVS للأعمال؟", answer: "يقع المركز في مبنى برشا فالي، البرشاء الأولى، دبي.", }, { question: "ما أنواع مساحات العمل المتاحة؟", answer: "نوفر مكاتب خاصة وغرف اجتماعات ومساحات عمل مرنة، ويمكنك التواصل معنا للاستفسار عن الخيارات الأخرى.", }, ];
 
-export default function ArabicHome() { return ( <main id="top" lang="ar" dir="rtl" className="arabic-page" style={{ background: "#f2eee3", color: "#12272a", minHeight: "100vh", textAlign: "right", }}
+const whatsappMessage = encodeURIComponent(
+  "مرحبًا، أود الحصول على معلومات عن مساحات العمل في مركز BVS للأعمال."
+);
+
+const whatsappUrl = `https://wa.me/971525189306?text=${whatsappMessage}`;
+
+export default function ArabicHome() { return ( <main
+  id="top"
+  lang="ar"
+  dir="rtl"
+  className="arabic-page"
+  style={{
+    background: "#f2eee3",
+    color: "#12272a",
+    minHeight: "100vh",
+    textAlign: "right",
+  }}
+>
 
 {/* شريط التواصل العلوي */} <div style={{ background: "#12272a", color: "#fff", padding: "10px 6%", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8, fontSize: 13, }} > <span>مساحات عمل احترافية في البرشاء الأولى، دبي</span> <a href="tel:+97144478808" dir="ltr" style={{ color: "#fff", textDecoration: "none" }} > +971 4 447 8808 </a> </div>
 
@@ -54,7 +71,14 @@ export default function ArabicHome() { return ( <main id="top" lang="ar" dir="rt
 
 <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 28, }} > <a href="tel:+97144478808" dir="ltr" style={contactButtonStyle} > اتصل بنا: +971 4 447 8808 </a>
 
-<a href={https://wa.me/971525189306?text=${encodeURIComponent( "مرحبًا، أود الحصول على معلومات عن مساحات العمل في مركز BVS للأعمال." )}} target="_blank" rel="noopener noreferrer" style={contactButtonStyle} > تواصل عبر واتساب ↗ </a> </div>
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  style={contactButtonStyle}
+>
+  تواصل عبر واتساب ↗
+</a>
 
 <p style={{ marginTop: 24, fontSize: 12, color: "#bdc6c2", }} > للاستفسار عن الأسعار والتوفر، يرجى التواصل مع فريقنا مباشرة. </p> </section>
 
@@ -66,7 +90,15 @@ export default function ArabicHome() { return ( <main id="top" lang="ar" dir="rt
 
 <p style={{ color: "#93a29f", fontSize: 12, marginTop: 25, }} > © 2026 مركز BVS للأعمال. جميع الحقوق محفوظة. </p> </footer>
 
-{/* زر واتساب ثابت */} <a className="whatsapp-float" href={https://wa.me/971525189306?text=${encodeURIComponent( "مرحبًا، أود الحصول على معلومات عن مساحات العمل في مركز BVS للأعمال." )}} target="_blank" rel="noopener noreferrer" aria-label="تواصل مع BVS عبر واتساب" > واتساب ↗ </a> </main> ); }
+<a
+  className="whatsapp-float"
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="تواصل مع BVS عبر واتساب"
+>
+  واتساب ↗
+</a>
 
 const navStyle = { color: "#f6f1e7", textDecoration: "none", };
 
