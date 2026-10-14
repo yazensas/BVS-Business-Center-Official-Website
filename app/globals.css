@@ -1184,3 +1184,58 @@ footer { padding: 72px 6vw 30px; background: #0a1b1e; color: #f6f1e7; }
     font-size: 13px;
   }
 }
+
+/* Arabic homepage: match the English design */
+.arabic-page {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Keep phone numbers and English branding correctly oriented */
+.arabic-page a[href^="tel:"],
+.arabic-page .brand,
+.arabic-page .hero-image-footer span,
+.arabic-page .photo-index,
+.arabic-page .map-pin,
+.arabic-page .whatsapp-float {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Keep the English BVS logo and brand name unchanged */
+.arabic-page .brand-name {
+  text-align: left;
+}
+
+/* Arabic headings need a little more line height */
+.arabic-page .hero-copy h1,
+.arabic-page .section-heading h2,
+.arabic-page .experience-copy h2,
+.arabic-page .included-intro h2,
+.arabic-page .location-copy h2,
+.arabic-page .faq-intro h2,
+.arabic-page .enquire-copy h2 {
+  line-height: 1.2;
+}
+
+/* Preserve readable form controls in RTL */
+.arabic-page .enquiry-form input,
+.arabic-page .enquiry-form select,
+.arabic-page .enquiry-form textarea {
+  text-align: right;
+}
+
+.arabic-page .enquiry-form input[type="tel"],
+.arabic-page .enquiry-form input[type="email"] {
+  direction: ltr;
+  text-align: left;
+}
+
+.arabic-page .enquiry-form select {
+  direction: rtl;
+}
+
+/* Ensure the Arabic menu stays aligned with the existing header */
+.arabic-page .mobile-nav a {
+  direction: rtl;
+}
