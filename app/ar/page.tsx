@@ -175,4 +175,9 @@ export default function ArabicHome() {
         </div>
         <p style={{ color: "#93a29f", fontSize: 12, marginTop: 25 }}>© 2026 مركز BVS للأعمال. جميع الحقوق محفوظة.</p>
       </footer>
+      
+    </main>
+  );
+}
+
 
