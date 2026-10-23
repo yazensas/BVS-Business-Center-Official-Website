@@ -179,6 +179,3 @@ export default function ArabicHome() {
       <a className="whatsapp-float" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="تواصل مع BVS عبر واتساب">
         واتساب ↗
       </a>
-    </main>
-  );
-}
