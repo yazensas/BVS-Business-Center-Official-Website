@@ -176,6 +176,3 @@ export default function ArabicHome() {
         <p style={{ color: "#93a29f", fontSize: 12, marginTop: 25 }}>© 2026 مركز BVS للأعمال. جميع الحقوق محفوظة.</p>
       </footer>
 
-      <a className="whatsapp-float" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="تواصل مع BVS عبر واتساب">
-        واتساب ↗
-      </a>
