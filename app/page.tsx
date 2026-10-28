@@ -420,9 +420,6 @@ export default function Home() {
   <span>Opening Hours</span>
   <p>
     Monday–Saturday: 9:00 AM–5:00 PM
-  </p>
-  <p>
-    Friday: 9:00 AM–5:00 PM<br />
     Sunday: Closed
   </p>
 </div>
