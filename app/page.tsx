@@ -403,8 +403,29 @@ export default function Home() {
         <div className="footer-top"><Brand inverse /><p>Professional workspace for modern business in the heart of Al Barsha.</p><a href="#top">Back to top ↑</a></div>
         <div className="footer-grid">
           <div><span>Explore</span><a href="#workspaces">Workspaces</a><a href="#experience">Why BVS</a><a href="#location">Location</a><a href="#faq">FAQs</a></div>
-          <div><span>Workspaces</span><a href="#workspaces">Private offices</a><a href="#workspaces">Meeting rooms</a><a href="#workspaces">Flexible desks</a><a href="#workspaces">Virtual office</a></div>
-          <div><span>Contact</span><a href="tel:+97144478808">+971 4 447 8808</a><p>Offices 203–208, 2nd Floor<br />Barsha Valley Building<br />Al Barsha 1, Dubai</p></div>
+          <div><span>Workspaces</span><a href="#workspaces">Private offices</a><a href="#workspaces">Meeting rooms</a><a href="#workspaces">Flexible desks</a><a href="#workspaces">Virtual office</a></div>       
+<div>
+  <span>Contact</span>
+  <a href="mailto:info@sas-properties.com">
+    info@sas-properties.com
+  </a>
+  <a href="tel:+97144478808">
+    +971 4 447 8808
+  </a>
+  <p>
+    Offices 203–208, 2nd Floor<br />
+    Barsha Valley Building<br />
+    Al Barsha 1, Dubai
+  </p>
+  <span>Opening Hours</span>
+  <p>
+    Monday–Saturday: 9:00 AM–5:00 PM
+  </p>
+  <p>
+    Friday: 9:00 AM–5:00 PM<br />
+    Sunday: Closed
+  </p>
+</div>
         </div>
         <div className="footer-bottom"><span>© 2026 BVS Business Center</span></div>
       </footer>
