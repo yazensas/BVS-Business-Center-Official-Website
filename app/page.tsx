@@ -404,6 +404,7 @@ export default function Home() {
         <div className="footer-grid">
           <div><span>Explore</span><a href="#workspaces">Workspaces</a><a href="#experience">Why BVS</a><a href="#location">Location</a><a href="#faq">FAQs</a></div>
           <div><span>Workspaces</span><a href="#workspaces">Private offices</a><a href="#workspaces">Meeting rooms</a><a href="#workspaces">Flexible desks</a><a href="#workspaces">Virtual office</a></div>       
+
 <div>
   <span>Contact</span>
   <a href="mailto:info@sas-properties.com">
@@ -421,9 +422,11 @@ export default function Home() {
   <p>
     Monday–Saturday: 9:00 AM–5:00 PM
   </p>
+  <p>
     Sunday: Closed
   </p>
 </div>
+
         </div>
         <div className="footer-bottom"><span>© 2026 BVS Business Center</span></div>
       </footer>
