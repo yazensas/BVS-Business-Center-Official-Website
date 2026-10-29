@@ -180,4 +180,17 @@ export default function ArabicHome() {
   );
 }
 
+<a
+  href={`https://wa.me/971525189306?text=${encodeURIComponent(
+    "مرحبًا، أود الحصول على معلومات عن مركز BVS للأعمال."
+  )}`}
+  className="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="تواصل معنا عبر واتساب"
+  dir="rtl"
+>
+  <span>تواصل معنا عبر واتساب</span>
+</a>
+
 
