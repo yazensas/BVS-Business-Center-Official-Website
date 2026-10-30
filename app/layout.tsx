@@ -79,6 +79,3 @@ export default function RootLayout({
     </html>
   );
 }
-.arabic-page ~ .whatsapp-float {
-  display: none;
-}
