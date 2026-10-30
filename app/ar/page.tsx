@@ -175,22 +175,19 @@ export default function ArabicHome() {
         </div>
         <p style={{ color: "#93a29f", fontSize: 12, marginTop: 25 }}>© 2026 مركز BVS للأعمال. جميع الحقوق محفوظة.</p>
       </footer>
-      
+
+      {/* Arabic floating WhatsApp button */}
+      <a
+        href={whatsappUrl}
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="تواصل معنا عبر واتساب"
+        dir="rtl"
+      >
+        <span>تواصل معنا عبر واتساب</span>
+      </a>
+
     </main>
   );
 }
-
-<a
-  href={`https://wa.me/971525189306?text=${encodeURIComponent(
-    "مرحبًا، أود الحصول على معلومات عن مركز BVS للأعمال."
-  )}`}
-  className="whatsapp-float"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="تواصل معنا عبر واتساب"
-  dir="rtl"
->
-  <span>تواصل معنا عبر واتساب</span>
-</a>
-
-
